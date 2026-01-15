@@ -24,7 +24,6 @@ class Program
     letter = "D";}
     
 
-    //{Console.WriteLine("Your grade is D");}
      
 
     else
