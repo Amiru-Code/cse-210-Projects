@@ -46,7 +46,11 @@ class Program
         Console.Write("enter an adverb: ");
         string adverb3 = Console.ReadLine();
 
-        Console.Write($"Today I went to the zoo. I saw a(n) {adjective1} {animal1} jumping up and down in its tree. It {verbPast1} {adverb1} through the large tunnel that led to its {adjective2} {noun1}. I got some peanuts and passed them through the cage to a gigantic gray {animal2} towering above my head. Feeding that animal made me hungry. I went to get a {adjective2} scoop of ice cream. It filled my stomach. Afterwards, I had to {verb1} {adverb2} to catch our bus. When I got home, I {verbPast2} my mom for a {adjective3} day at the zoo.");
+        Console.Write($@"Today I went to the zoo. I saw a(n) {adjective1} {animal1} jumping up and down in its
+        a tree. It {verbPast1} {adverb1} through the large tunnel that led to its {adjective2} {noun1}.
+         I got some peanuts and passed them through the cage to a gigantic gray {animal2} towering above my head. Feeding that animal made me hungry.
+          I went to get a {adjective2} scoop of ice cream. It filled my stomach. Afterwards, I had to {verb1} {adverb2} to catch our bus.
+           When I got home, I {verbPast2} my mom for a {adjective3} day at the zoo.");
 
         
 
