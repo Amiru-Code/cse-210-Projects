@@ -9,7 +9,7 @@ class Program
     static void Main()
     {
         
-        int num = 0;
+        int num;
         List<int> numbers = new List<int>();
         
         
@@ -19,10 +19,8 @@ class Program
         {
             Console.Write("Enter an integer: ");
             string input = Console.ReadLine();
-            if (!int.TryParse(input, out num))
-            {
-                Console.WriteLine("Invalid input. Please enter a valid integer.");
-            }
+            num = int.Parse(input);
+            
             numbers.Add(num);
         }
         while (num != 0);
