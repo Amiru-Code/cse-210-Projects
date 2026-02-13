@@ -36,8 +36,7 @@ public class Journal
             {
                 outputfile.WriteLine(entry.ToFileLine(separator)); 
             }
-        }
-
+        }find ~ -type d -name ".git" 2>/dev/null | head -n 50
     }
 
     public void LoadFromFile(string filename)

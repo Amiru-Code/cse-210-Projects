@@ -41,7 +41,7 @@ class Program
                 DisplayJournal();
                 break;
                 case "3":
-                SaveJournal();
+                SaveJournal();ingredient
                 break; 
                 case "4":
                 LoadJournal();
