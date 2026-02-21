@@ -5,14 +5,20 @@ public class Program
 {
     public static void Main()
     {
-        Console.WriteLine("Enter 1 for a single verse scripture, enter 2 for a multi verse scripture");
-        string numberOfVerse = Console.ReadLine();
+        Console.WriteLine("Enter 1 for Ether, enter 2 for Proverbs Enter 3 for random");
+
+        string verseNum = Console.ReadLine();
         string text;
 
+        if(verseNum == "3")
+        {
+                    Random random = new Random(); 
+        verseNum = random.Next(1,3).ToString();
+        }
 
 
 
-        if(!string.IsNullOrWhiteSpace(numberOfVerse) && numberOfVerse.Trim() == "2")
+        if(!string.IsNullOrWhiteSpace(verseNum) && verseNum.Trim() == "2")
         {
          // Example multi verse scripture Proverbs 3:5–6 
         var referenceMulti = new Reference("Proverbs", 3, 5, 6);
@@ -55,7 +61,7 @@ public class Program
         }
         
 
-        if(!string.IsNullOrWhiteSpace(numberOfVerse) && numberOfVerse.Trim() == "1")
+        if(!string.IsNullOrWhiteSpace(verseNum) && verseNum.Trim() == "1")
                 {
                     var referenceSingle = new Reference("Ether", 12, 27);
                      text = "And if men come unto me I will show unto them their weakness. I give unto men weakness that they may be humble; and my grace is sufficient for all men that humble themselves before me; for if they humble themselves before me, and have faith in me, then will I make weak things become strong unto them.";
