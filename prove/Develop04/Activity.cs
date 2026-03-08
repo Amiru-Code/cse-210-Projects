@@ -6,7 +6,7 @@ public class Activity
 
     public Activity()
     {
-        
+        _rand = new Random();
     }
 
     public int UserDuration()

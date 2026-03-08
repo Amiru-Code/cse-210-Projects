@@ -18,8 +18,8 @@ public class Breathing : Activity
             activityName: "Breathing Activity",
             description: _initialDisplay);
 
-        // let each in/out last 4 seconds
-        _breathe.BreatheCountdown(countdown: 4);  
+        // let each in/out last 7 seconds
+        _breathe.BreatheCountdown(countdown: 7);  
 
         BreatheLoop(_activityDuration);
 
@@ -39,6 +39,7 @@ public class Breathing : Activity
             if (DateTimeOffset.Now.AddSeconds(4) > end)
             {
                 // finish gently
+                Console.Clear();
                 break;
             }
         }

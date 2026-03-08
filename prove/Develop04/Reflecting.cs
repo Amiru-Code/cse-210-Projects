@@ -54,7 +54,7 @@ public class Reflecting: Activity
 
         Console.WriteLine("When you have something to write press enter to continue");
         Console.ReadLine();
-        Console.Write("You may begin in");
+        Console.WriteLine("You may begin in");
         Animation.Countdown(delay);
         Console.WriteLine();
     }
@@ -62,15 +62,17 @@ public class Reflecting: Activity
     public void UserReflect(int duration)
     {
         var end = DateTimeOffset.Now.AddSeconds(duration);
-        int questionDelaySeconds = 8;
+        int questionDelaySeconds = 2;
 
-        while (DateTimeOffset.Now > end)
+        // ask questions while the requested duration has not yet passed
+        while (DateTimeOffset.Now < end)
         {
             string q = _questions[_rand.Next(_questions.Count)];
-            Console.Write(q);
+            Console.WriteLine(q);
+            Console.ReadLine();
             Console.WriteLine("Thinking ");
             Animation.Spinner(questionDelaySeconds);
-            Console.WriteLine();
+            Console.Clear();
         }
         
     }
