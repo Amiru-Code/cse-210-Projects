@@ -50,13 +50,15 @@ public class Reflecting: Activity
     {
         var prompt = _prompts[_rand.Next(_prompts.Count)];
         Console.WriteLine("Consider the following prompt");
+        Thread.Sleep(2000);
+        Console.Clear();
         Console.WriteLine(prompt);
 
         Console.WriteLine("When you have something to write press enter to continue");
         Console.ReadLine();
         Console.WriteLine("You may begin in");
         Animation.Countdown(delay);
-        Console.WriteLine();
+        Console.Clear();
     }
 
     public void UserReflect(int duration)

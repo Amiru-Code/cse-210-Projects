@@ -7,7 +7,7 @@ static void Main()
         {
             Console.Title = "Mindfulness Activities";
 
-            // Optional loading/intro animation time in milliseconds
+            
             var menu = new Menu(loadingTime: 1500);
 
             while (true)
