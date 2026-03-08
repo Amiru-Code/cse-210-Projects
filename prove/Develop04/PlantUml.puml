@@ -33,6 +33,12 @@ class Menu {
     + UserOptions(): int
     + ActivityLoop(int option): void
 }
+class Animation {
+    - _spin: char 
+    +Spinner(int seconds): static void
+    +Countdown(int seconds): static void
+}
+
 class Reflecting {
     - _initialDisplay: string
     - _prompts: List<string>
@@ -49,8 +55,13 @@ class Listing {
     + RandPrompt(int delay): void
     + ListIdeas(int duration): int
 }
+class Program{
+    Main(): static void
+}
 
 Activity <|-- Breathing
+Animation <|--Menu
+Program -- Menu
 Activity <|-- Reflecting
 Activity <|-- Listing
 Breathing -- Breathe
