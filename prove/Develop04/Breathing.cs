@@ -11,7 +11,6 @@ public class Breathing : Activity
         _initialDisplay = _breathe.GetInitial();
     }
 
-    // entry point for the activity – not a constructor
     public void Run()
     {
         StartMessage(

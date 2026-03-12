@@ -7,7 +7,7 @@ public class Animation()
     {
         var end = DateTimeOffset.Now.AddSeconds(seconds);
         int i = 0; 
-        // continue spinning until we reach the target time
+        // continue spinning until I reach the target time
         while (DateTimeOffset.Now < end)
         {
             Console.Write($"\r{_spin[i % _spin.Length]} ");
