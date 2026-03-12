@@ -21,7 +21,7 @@ class Program
 
     foreach(Shape i in shapes)
         {
-            Console.WriteLine($" The area is {i.GetArea()} The colour is {i.GetColour()}");
+            Console.WriteLine($" The area of the {i.GetColour()} shape is {i.GetArea()}");
         }
 
     }
