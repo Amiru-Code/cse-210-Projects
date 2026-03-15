@@ -1,0 +1,114 @@
+@startuml
+skinparam classAttributeIconSize 0
+title Eternal Quest Program - Updated UML Design
+
+class Program {
+  + Main() : void
+  - ShowMenu(manager : GoalManager) : void
+  - CreateGoalMenu(manager : GoalManager) : void
+  - RecordEventMenu(manager : GoalManager) : void
+}
+
+abstract class Goal {
+  - _name : string
+  - _description : string
+  - _points : int
+  + Goal(name : string, description : string, points : int)
+  + GetName() : string
+  + GetDescription() : string
+  + GetPoints() : int
+  + {abstract} RecordEvent() : int
+  + {abstract} IsComplete() : bool
+  + {abstract} GetDetailsString() : string
+}
+
+class SimpleGoal {
+  - _isComplete : bool
+  + SimpleGoal(name : string, description : string, points : int, isComplete : bool = false)
+  + RecordEvent() : int
+  + IsComplete() : bool
+  + GetDetailsString() : string
+}
+
+class EternalGoal {
+  - _timesRecorded : int
+  + EternalGoal(name : string, description : string, points : int, timesRecorded : int = 0)
+  + RecordEvent() : int
+  + IsComplete() : bool
+  + GetDetailsString() : string
+  + GetTimesRecorded() : int
+}
+
+class ChecklistGoal {
+  - _amountCompleted : int
+  - _targetAmount : int
+  - _bonus : int
+  + ChecklistGoal(name : string, description : string, points : int, targetAmount : int, bonus : int, amountCompleted : int = 0)
+  + RecordEvent() : int
+  + IsComplete() : bool
+  + GetDetailsString() : string
+  + GetAmountCompleted() : int
+  + GetTargetAmount() : int
+  + GetBonus() : int
+}
+
+class GoalManager {
+  - _goals : List~Goal~
+  - _score : int
+  + AddGoal(goal : Goal) : void
+  + GetGoals() : List~Goal~
+  + GetScore() : int
+  + GetLevel() : int
+  + GetPointsToNextLevel() : int
+  + DisplayPlayerInfo() : void
+  + ListGoalDetails() : void
+  + RecordEvent(goalIndex : int) : int
+  + SetData(score : int, goals : List~Goal~) : void
+}
+
+class GoalFileHandler {
+  + Save(filename : string, score : int, goals : List~Goal~) : void
+  + Load(filename : string) : SaveData
+  - ToData(goal : Goal) : GoalData
+  - CreateGoalFromData(data : GoalData) : Goal
+}
+
+class SaveData {
+  + Score : int
+  + Goals : List~GoalData~
+}
+
+class GoalTypes <<utility>> {
+  + {static} Simple : string = "Simple"
+  + {static} Eternal : string = "Eternal"
+  + {static} Checklist : string = "Checklist"
+}
+
+class GoalData {
+  + Type : string
+  + Name : string
+  + Description : string
+  + Points : int
+  + IsComplete : bool
+  + AmountCompleted : int
+  + TargetAmount : int
+  + Bonus : int
+}
+
+Goal <|-- SimpleGoal
+Goal <|-- EternalGoal
+Goal <|-- ChecklistGoal
+
+GoalManager o-- Goal
+
+Program --> GoalManager
+Program --> GoalFileHandler
+
+GoalFileHandler ..> Goal : reads
+GoalFileHandler --> GoalData
+GoalFileHandler --> SaveData
+GoalFileHandler ..> GoalTypes : uses
+
+SaveData o-- GoalData
+
+@enduml
