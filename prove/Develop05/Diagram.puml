@@ -1,6 +1,5 @@
 @startuml
 skinparam classAttributeIconSize 0
-title Eternal Quest Program - Updated UML Design
 
 class Program {
   + Main() : void
@@ -25,17 +24,17 @@ abstract class Goal {
 class SimpleGoal {
   - _isComplete : bool
   + SimpleGoal(name : string, description : string, points : int, isComplete : bool = false)
-  + RecordEvent() : int
-  + IsComplete() : bool
-  + GetDetailsString() : string
+  + override RecordEvent() : int
+  + override IsComplete() : bool
+  + override GetDetailsString() : string
 }
 
 class EternalGoal {
   - _timesRecorded : int
   + EternalGoal(name : string, description : string, points : int, timesRecorded : int = 0)
-  + RecordEvent() : int
-  + IsComplete() : bool
-  + GetDetailsString() : string
+  + override RecordEvent() : int
+  + override IsComplete() : bool
+  + override GetDetailsString() : string
   + GetTimesRecorded() : int
 }
 
@@ -44,9 +43,9 @@ class ChecklistGoal {
   - _targetAmount : int
   - _bonus : int
   + ChecklistGoal(name : string, description : string, points : int, targetAmount : int, bonus : int, amountCompleted : int = 0)
-  + RecordEvent() : int
-  + IsComplete() : bool
-  + GetDetailsString() : string
+  + override RecordEvent() : int
+  + override IsComplete() : bool
+  + override GetDetailsString() : string
   + GetAmountCompleted() : int
   + GetTargetAmount() : int
   + GetBonus() : int
@@ -55,6 +54,7 @@ class ChecklistGoal {
 class GoalManager {
   - _goals : List~Goal~
   - _score : int
+  + GoalManager()
   + AddGoal(goal : Goal) : void
   + GetGoals() : List~Goal~
   + GetScore() : int
@@ -67,6 +67,7 @@ class GoalManager {
 }
 
 class GoalFileHandler {
+  + GoalFileHandler()
   + Save(filename : string, score : int, goals : List~Goal~) : void
   + Load(filename : string) : SaveData
   - ToData(goal : Goal) : GoalData
