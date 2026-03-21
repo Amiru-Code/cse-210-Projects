@@ -9,16 +9,13 @@ class Program {
 }
 
 abstract class Goal {
-  - _name : string
-  - _description : string
-  - _points : int
+  # _name : string
+  # _description : string
+  # _points : int
   + Goal(name : string, description : string, points : int)
-  + GetName() : string
-  + GetDescription() : string
-  + GetPoints() : int
   + {abstract} RecordEvent() : int
   + {abstract} IsComplete() : bool
-  + {abstract} GetDetailsString() : string
+  + virtual GetDetailsString() : string
 }
 
 class SimpleGoal {
@@ -46,9 +43,41 @@ class ChecklistGoal {
   + override RecordEvent() : int
   + override IsComplete() : bool
   + override GetDetailsString() : string
+' In need getters for amountCompleted, targetAmount, and bonus to save/load ChecklistGoals, but I don't want them to be public since they shouldn't be used outside of GoalManager and GoalFileHandler
   + GetAmountCompleted() : int
   + GetTargetAmount() : int
   + GetBonus() : int
+}
+
+class NegativeGoal {
+  - _timesRecorded : int
+  - _penalty : int
+  + NegativeGoal(name : string, description : string, penalty : int, timesRecorded : int = 0)
+  + override RecordEvent() : int
+  + override IsComplete() : bool
+  + override GetDetailsString() : string
+  ' I need getters for timesRecorded and penalty to save/load NegativeGoals, but I don't want them to be public since they shouldn't be used outside of GoalManager and GoalFileHandler
+  + GetTimesRecorded() : int
+  + GetPenalty() : int
+}
+
+
+class StreakGoal {
+  - _currentStreak : int
+  - _longestStreak : int
+  - _streakBonus : int
+  - _requiredStreak : int
+  - _lastRecordedDate : DateTime
+  + StreakGoal(name : string, description : string, points : int, requiredStreak : int, streakBonus : int, currentStreak : int = 0, longestStreak : int = 0, lastRecordedDate : DateTime = default)
+  + override RecordEvent() : int
+  + override IsComplete() : bool
+  + override GetDetailsString() : string
+' I need getters for currentStreak, longestStreak, requiredStreak, streakBonus, and lastRecordedDate to save/load StreakGoals, but I don't want them to be public since they shouldn't be used outside of GoalManager and GoalFileHandler
+  + GetCurrentStreak() : int
+  + GetLongestStreak() : int
+  + GetRequiredStreak() : int
+  + GetStreakBonus() : int
+  + GetLastRecordedDate() : DateTime
 }
 
 class GoalManager {
