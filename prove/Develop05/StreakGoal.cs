@@ -8,7 +8,7 @@ public class StreakGoal : Goal
     private int _requiredStreak;
     private DateTime _lastRecordedDate;
 
-    StreakGoal(string name, string description, int points, int currentStreak, int longestStreak, int streakBonus, int requiredStreak, DateTime lastRecordedDate)
+    public StreakGoal(string name, string description, int points, int currentStreak, int longestStreak, int streakBonus, int requiredStreak, DateTime lastRecordedDate)
     : base(name, description, points)
     {
         _currentStreak = currentStreak;

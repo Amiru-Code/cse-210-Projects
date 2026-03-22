@@ -1,6 +1,6 @@
 @startuml
 skinparam classAttributeIconSize 0
-
+title Eternal Quest updated 
 class Program {
   + Main() : void
   - ShowMenu(manager : GoalManager) : void
@@ -112,6 +112,8 @@ class GoalTypes <<utility>> {
   + {static} Simple : string = "Simple"
   + {static} Eternal : string = "Eternal"
   + {static} Checklist : string = "Checklist"
+  + {static} Streak : string = "Streak"
+  + {static} Negative : string = "Negative"
 }
 
 class GoalData {
@@ -123,11 +125,20 @@ class GoalData {
   + AmountCompleted : int
   + TargetAmount : int
   + Bonus : int
+  + Penalty : int
+  + CurrentStreak : int
+  + LongestStreak : int
+  + RequiredStreak : int
+  + StreakBonus : int
+  + LastRecordedDate : DateTime
 }
+
 
 Goal <|-- SimpleGoal
 Goal <|-- EternalGoal
 Goal <|-- ChecklistGoal
+Goal <|-- NegativeGoal
+Goal <|-- StreakGoal
 
 GoalManager o-- Goal
 

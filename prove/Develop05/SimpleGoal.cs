@@ -3,7 +3,7 @@ public class SimpleGoal : Goal
     private bool _isComplete;
 
 // simple constructor, inherits from goal
-    SimpleGoal(bool isComplete, string name, string description, int points)
+    public SimpleGoal(string name, string description, int points,bool isComplete)
     : base(name, description, points)
     {
         _isComplete = isComplete;

@@ -25,4 +25,8 @@ public abstract class Goal
         
     }
 
+    public string GetName() => _name;
+    public string GetDescription() => _description;
+    public int GetPoints() => _points;
+
 }
