@@ -34,7 +34,7 @@ public class GoalfileHandler
        return (raw.Score, goals);
     }
 
-// Converts a live Goal object flat GoalData for serialization
+// Converts a Goal object to GoalData for serialization
     private GoalData ToData(Goal goal) => goal switch
     {
 

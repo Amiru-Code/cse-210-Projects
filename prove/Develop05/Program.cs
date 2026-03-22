@@ -109,35 +109,32 @@ class Program
     {
         var goals = _manager.GetGoals();
 
-        if(goals.Count == 0)
+        if (goals.Count == 0)
         {
             Console.WriteLine("No goals yet");
             return;
         }
-        Console.WriteLine("\n--Record Event");
+
+        Console.WriteLine("\n-- Record Event");
         _manager.ListGoalDetails();
 
         Console.Write("Which goal did you complete? (number): ");
-        if (!int.TryParse(Console.ReadLine(), out int index) || 
-        index < 1 || index > goals.Count)
+        if (!int.TryParse(Console.ReadLine(), out int index) ||
+            index < 1 || index > goals.Count)
         {
-          Console.WriteLine("Invalid selection. ");
-          return;  
+            Console.WriteLine("Invalid selection.");
+            return;
         }
 
-        int pointsEarned = _manager.RecordEvent(index -1);
+        int pointsEarned = _manager.RecordEvent(index - 1);
 
-        if(pointsEarned < 0)
-        {
-            Console.WriteLine($"+{pointsEarned} points");
-        }
+        if (pointsEarned > 0)
+            Console.WriteLine($"+{pointsEarned} points!");
         else if (pointsEarned < 0)
-        Console.WriteLine($"{pointsEarned} points");
-        else 
-        Console.WriteLine("No points");
-        
+            Console.WriteLine($"{pointsEarned} points. Stay strong!");
+        else
+            Console.WriteLine("No points — already complete or recorded today.");
     }
-
     static void SaveMenu()
     {
         Console.Write("filename to save: ");

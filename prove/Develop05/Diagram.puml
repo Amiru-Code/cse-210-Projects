@@ -2,10 +2,14 @@
 skinparam classAttributeIconSize 0
 title Eternal Quest updated 
 class Program {
-  + Main() : void
-  - ShowMenu(manager : GoalManager) : void
-  - CreateGoalMenu(manager : GoalManager) : void
-  - RecordEventMenu(manager : GoalManager) : void
+  - _manager : GoalManager
+  - _fileHandler : GoalFileHandler
+  + Main() : static void
+  - ShowMenu() : static void
+  - CreateGoalMenu() : static void
+  - RecordEventMenu(m) : static void
+  - SaveMenu() : static void
+  - LoadMenu() : static void
 }
 
 abstract class Goal {
@@ -16,6 +20,10 @@ abstract class Goal {
   + {abstract} RecordEvent() : int
   + {abstract} IsComplete() : bool
   + virtual GetDetailsString() : string
+' Still need these actually, GoalFileHandler needs to be able to access the name, description, and points of a Goal to save it, but I don't want them to be public since they shouldn't be used outside of GoalManager and GoalFileHandler
+  + GetName() : string
+  + GetDescription() : string
+  + GetPoints() : int
 }
 
 class SimpleGoal {
@@ -96,9 +104,8 @@ class GoalManager {
 }
 
 class GoalFileHandler {
-  + GoalFileHandler()
   + Save(filename : string, score : int, goals : List~Goal~) : void
-  + Load(filename : string) : SaveData
+  + Load(filename : string) : tuple of (score : int, goals : List~Goal~)
   - ToData(goal : Goal) : GoalData
   - CreateGoalFromData(data : GoalData) : Goal
 }
