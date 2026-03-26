@@ -1,5 +1,3 @@
-using System.ComponentModel;
-
 public class StreakGoal : Goal
 {
     private int _currentStreak;

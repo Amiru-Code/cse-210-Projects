@@ -1,5 +1,3 @@
-using System.Drawing;
-
 public abstract class Goal
 {
     protected string _name;

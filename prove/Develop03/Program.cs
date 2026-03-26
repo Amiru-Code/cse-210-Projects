@@ -5,7 +5,7 @@ public class Program
 {
     public static void Main()
     {
-        Console.WriteLine("Enter 1 for Ether, enter 2 for Proverbs Enter 3 for random");
+        Console.WriteLine("Enter 1 for D&C, enter 2 for Proverbs Enter 3 for random");
 
         string verseNum = Console.ReadLine();
         string text;
@@ -63,8 +63,8 @@ public class Program
 
         if(!string.IsNullOrWhiteSpace(verseNum) && verseNum.Trim() == "1")
                 {
-                    var referenceSingle = new Reference("Ether", 12, 27);
-                     text = "And if men come unto me I will show unto them their weakness. I give unto men weakness that they may be humble; and my grace is sufficient for all men that humble themselves before me; for if they humble themselves before me, and have faith in me, then will I make weak things become strong unto them.";
+                    var referenceSingle = new Reference("The standard of truth", 1, 1);
+                     text = "The standard of truth has been erected. No unhallowed hand can stop the work from progressing; persecutions may rage, mobs may combine, \n armies may assemble, calumny may defame, but the truth of God will go forth boldly, nobly, and independent till it has penetrated every continent, \n visited every clime, swept every country, and sounded in every ear, till the purposes of God shall be accomplished\n and the great Jehovah shall say the work is done.";
                      var scripture = new Scripture(referenceSingle, text);
                      
 
