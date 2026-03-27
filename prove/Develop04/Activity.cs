@@ -37,19 +37,46 @@ public class Activity
             UserDuration();
 
             Console.Write("\nGet ready...");
-            Animation.Spinner(3); // brief pause before starting
+            Activity.Spinner(3); // brief pause before starting
             Console.WriteLine();
         }
 
     protected void EndMessage(string activityName)
     {
         Console.WriteLine("\nWell done!");
-        Animation.Spinner(2);   
+        Activity.Spinner(2);   
 
         Console.WriteLine($"\nYou have completed the {activityName} for {_activityDuration} seconds.");    
-        Animation.Spinner(3);
+        Activity.Spinner(3);
         Console.WriteLine();
     }
+
+
+    public static void Spinner(int seconds)
+    {
+
+        char[] _spin = {'|', '/', '-', '\\'};
+        var end = DateTimeOffset.Now.AddSeconds(seconds);
+        int i = 0; 
+        // continue spinning until I reach the target time
+        while (DateTimeOffset.Now < end)
+        {
+            Console.Write($"\r{_spin[i % _spin.Length]} ");
+            Thread.Sleep(60); 
+            i ++; 
+        }
+        Console.Write("\r \r"); 
+    }
+
+    public static void Countdown(int seconds)
+    {
+        for(int s = seconds; s >= 1; s--)
+        {
+            Console.WriteLine(s);
+            Thread.Sleep(1000);
+        }
+    }
+
 
 
 }

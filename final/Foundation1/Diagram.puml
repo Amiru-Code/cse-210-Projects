@@ -1,0 +1,35 @@
+@startuml
+skinparam classAttributeIconSize 0
+title foundation 1 
+
+class Program {
+    main() : void 
+}
+
+class Video {
+    -_comment : List<Comment> 
+    -_title : String
+    -author : String
+    -duration : int
+    +Video(title : String, author : String, duration : int) : void
+    - numberOfComments() : string
+    
+
+
+}
+
+class comment {
+    -text : String
+    -author : String
+    +Comment(text : String, author : String) : void 
+}
+
+
+class CreateVideo { 
+    -_title : String
+    -_author : String
+    -_duration : int
+    +CreateVideo(title : String, author : String, duration : int)
+}
+
+@enduml

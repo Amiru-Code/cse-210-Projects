@@ -1,25 +1,25 @@
 public class Listing: Activity
 {
-    private string _initialDisplay = "";
+    private string _initialDisplay;
     private List<string> _prompts = new()
     {  
-    "Who are people that you appreciate?",
-    "What are personal strengths of yours?",
-    "Who are people that you have helped this week?",
-    "When have you felt the Holy Ghost this month?",
-    "Who are some of your personal heroes?"
+        "Who are people that you appreciate?",
+        "What are personal strengths of yours?",
+        "Who are people that you have helped this week?",
+        "When have you felt the Holy Ghost this month?",
+        "Who are some of your personal heroes?"
     }; 
 
     public void Run()
     {
         
-    _initialDisplay = "This activity will help you reflect on the good things in your life by having you list as many things as you can. ";
-    StartMessage("Listing Activity", _initialDisplay );
+        _initialDisplay = "This activity will help you reflect on the good things in your life by having you list as many things as you can. ";
+        StartMessage("Listing Activity", _initialDisplay );
 
-    RandPrompt(delay: 5);
-    int count = ListIdeas(_activityDuration);
-    Console.WriteLine($"You listed {count} items. ");
-    EndMessage("Listing Activity");
+        RandPrompt(delay: 5);
+        int count = ListIdeas(_activityDuration);
+        Console.WriteLine($"You listed {count} items. ");
+        EndMessage("Listing Activity");
 
     }
     public string GetInitial()
@@ -34,7 +34,7 @@ public class Listing: Activity
         Console.WriteLine(prompt);
 
         Console.WriteLine("You may begin in ");
-        Animation.Countdown(delay);
+        Activity.Countdown(delay);
         Console.WriteLine();
     }
 
