@@ -12,7 +12,8 @@ class Video {
     -author : String
     -duration : int
     +Video(title : String, author : String, duration : int) : void
-    - numberOfComments() : string
+    + numberOfComments() : string
+    +addComment(comment : Comment) : void
     
 
 
@@ -25,11 +26,8 @@ class comment {
 }
 
 
-class CreateVideo { 
-    -_title : String
-    -_author : String
-    -_duration : int
-    +CreateVideo(title : String, author : String, duration : int)
-}
+
+Program --> Video : creates
+Video --> comment : contains
 
 @enduml

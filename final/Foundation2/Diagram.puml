@@ -1,0 +1,55 @@
+@startuml ordering_system
+
+skinparam classAttributeIconSize 0
+title Product Ordering System - Class Diagram
+
+class Program {
+    +main() : void
+}
+
+class Order {
+    -_products : List<Product>
+    -_customer : Customer
+    +Order(customer : Customer)
+    +addProduct(product : Product) : void
+    +getTotalCost() : float
+    +getPackingLabel() : String
+    +getShippingLabel() : String
+}
+
+class Product {
+    -_name : String
+    -_productId : String
+    -_pricePerUnit : float
+    -_quantity : int
+    +Product(name : String, productId : String, pricePerUnit : float, quantity : int)
+    +getName() : String
+    +getProductId() : String
+    +getTotalCost() : float
+}
+
+class Customer {
+    -_name : String
+    -_address : Address
+    +Customer(name : String, address : Address)
+    +getName() : String
+    +getAddress() : Address
+    +livesInUSA() : bool
+}
+
+class Address {
+    -_street : String
+    -_city : String
+    -_stateProvince : String
+    -_country : String
+    +Address(street : String, city : String, stateProvince : String, country : String)
+    +isInUSA() : bool
+    +getFullAddress() : String
+}
+
+Program --> Order : creates
+Order *-- Product : contains
+Order --> Customer : has
+Customer  *--  Address : has
+
+@enduml

@@ -1,0 +1,51 @@
+@startuml fitness_tracker
+
+skinparam classAttributeIconSize 0
+title Fitness Tracker - Class Diagram
+
+class Program {
+    +main() : void
+}
+
+abstract class Activity {
+    -_date : String
+    -_minutes : int
+    +Activity(date : String, minutes : int)
+    +getDate() : String
+    +getMinutes() : int
+    +getDistance() : float
+    +getSpeed() : float
+    +getPace() : float
+    +getSummary() : String
+}
+
+class Running {
+    -_distance : float
+    +Running(date : String, minutes : int, distance : float)
+    +getDistance() : float
+    +getSpeed() : float
+    +getPace() : float
+}
+
+class Cycling {
+    -_speed : float
+    +Cycling(date : String, minutes : int, speed : float)
+    +getDistance() : float
+    +getSpeed() : float
+    +getPace() : float
+}
+
+class Swimming {
+    -_laps : int
+    +Swimming(date : String, minutes : int, laps : int)
+    +getDistance() : float
+    +getSpeed() : float
+    +getPace() : float
+}
+
+Running --|> Activity
+Cycling --|> Activity
+Swimming --|> Activity
+Program --> Activity : creates
+
+@enduml

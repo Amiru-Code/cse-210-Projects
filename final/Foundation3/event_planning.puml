@@ -1,0 +1,64 @@
+@startuml event_planning
+
+skinparam classAttributeIconSize 0
+title Event Planning System - Class Diagram
+
+class Program {
+    +main() : void
+}
+
+class Address {
+    -_street : String
+    -_city : String
+    -_stateProvince : String
+    -_country : String
+    +Address(street : String, city : String, stateProvince : String, country : String)
+    +getFullAddress() : String
+}
+
+abstract class Event {
+    -_title : String
+    -_description : String
+    -_date : String
+    -_time : String
+    -_address : Address
+    +Event(title : String, description : String, date : String, time : String, address : Address)
+    +getStandardDetails() : String
+    +getShortDescription() : String
+    +getFullDetails() : String
+    +getType() : String
+}
+
+class Lecture {
+    -_speaker : String
+    -_capacity : int
+    +Lecture(title : String, description : String, date : String, time : String, address : Address, speaker : String, capacity : int)
+    +getSpeaker() : String
+    +getCapacity() : int
+    +getFullDetails() : String
+    +getType() : String
+}
+
+class Reception {
+    -_rsvpEmail : String
+    +Reception(title : String, description : String, date : String, time : String, address : Address, rsvpEmail : String)
+    +getRsvpEmail() : String
+    +getFullDetails() : String
+    +getType() : String
+}
+
+class OutdoorGathering {
+    -_weatherForecast : String
+    +OutdoorGathering(title : String, description : String, date : String, time : String, address : Address, weatherForecast : String)
+    +getWeatherForecast() : String
+    +getFullDetails() : String
+    +getType() : String
+}
+
+Event  *-- Address : has
+Lecture --|> Event
+Reception --|> Event
+OutdoorGathering --|> Event
+Program --> Event : creates
+
+@enduml
